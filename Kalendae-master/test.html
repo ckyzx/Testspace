@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <title></title>
+    <link rel="stylesheet" href="build/kalendae.css" type="text/css" charset="utf-8">
+    <script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<html>
+<input type="text" id="rangeDate" />
+<div id="myDiv"></div>
+<script type="text/javascript">
+    /*var k4 = new Kalendae.Input('rangeDate', {
+        months:2,
+        mode:'range',
+        selected:[Kalendae.moment().subtract({M:1}), Kalendae.moment().add({M:1})],
+        format: 'YYYY-MM-DD'
+    });*/
+    /*$('#rangeDate').kalendae({
+        months: 2,
+        mode: 'range',
+        selected: [Kalendae.moment().subtract({M: 1}), Kalendae.moment().add({M: 1})],
+        format: 'YYYY-MM-DD',
+        change: function (date) {
+            console.log(date, this.getSelected());
+        }
+    });
+    var k = new Kalendae('myDiv', {
+        months: 2,
+        mode: 'range',
+        selected: [Kalendae.moment(), Kalendae.moment().add({d: 1})],
+        format: 'YYYY-MM-DD'
+    });
+    k.subscribe('change', function (date) {
+        console.log(date, this.getSelected());
+    });*/
+    $('#myDiv').kalendae({
+        months: 2,
+        mode: 'range',
+        selected: [Kalendae.moment(), Kalendae.moment().add({d: 1})],
+        format: 'YYYY-MM-DD',
+        subscribe: {change:function (date) {
+            console.log(date, this.getSelected());
+        }}
+    });
+</script>
+</html>
+</body>

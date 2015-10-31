@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+    String.prototype.toDate = function(){
+
+        var strDate, date;
+
+        strDate = this.replace(/\d+(?=-[^-]+$)/, function (a) {
+            return parseInt(a, 10) - 1;
+        }).match(/\d+/g);
+        date = eval('new Date(' + strDate + ')');
+
+        return date;
+    };
+
+    var str;
+
+    str = '2015-07-24';
+
+    console.log(str.toDate());
+
+</script>
+</body>
+</html>

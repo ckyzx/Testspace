@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript" src="js.datetime.js"></script>
+<script type="text/javascript">
+
+    var str, date;
+
+    str = '/Date(1446015278016)/';
+	date = str.jsonDateToDate();
+	
+    console.log(date.format('yyyy-MM-dd hh:mm:ss'));
+
+</script>
+</body>
+</html>

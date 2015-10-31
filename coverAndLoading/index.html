@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>遮罩层</title>
+    <style>
+        .cover {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            filter: alpha(opacity=60);
+            background-color: #FFF;
+            z-index: 1002;
+            left: 0px;
+            display: none;
+            opacity: 0.5;
+            -moz-opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div id="cover" class="cover">
+    <div style="margin:30px auto; width:32px;">
+        <img alt="loading" src="loading-1.gif" />
+    </div>
+</div>
+<input type="button" id="trigger" onclick="showMask();" value="开启遮罩"/>
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    function showMask() {
+        $('body').css("overflow", "hidden");
+        $("#cover").show();
+    }
+</script>
+</body>
+</html>

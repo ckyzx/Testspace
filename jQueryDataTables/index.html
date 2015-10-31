@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/jquery.dataTables.css" />
+    <style>
+        th{text-align:left;}
+    </style>
+</head>
+<body>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>订单号</th>
+        <th>酒店名</th>
+        <th>会员号</th>
+        <th>联系人</th>
+        <th>手机号</th>
+        <th>房型</th>
+        <th>订单总价</th>
+        <th>入住/退房日期</th>
+        <th>订单状态</th>
+        <th>保留时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <tfoot>
+    <tr>
+        <th>订单号</th>
+        <th>酒店名</th>
+        <th>会员号</th>
+        <th>联系人</th>
+        <th>手机号</th>
+        <th>房型</th>
+        <th>订单总价</th>
+        <th>入住/退房日期</th>
+        <th>订单状态</th>
+        <th>保留时间</th>
+        <th>操作</th>
+    </tr>
+    </tfoot>
+
+    <tbody>
+    </tbody>
+</table>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+
+        $('#example').DataTable({
+            'columnDefs':[
+                {'data':null, 'targets':-1, 'defaultContent':'<button>编辑</button>'},
+                {'name': 'order_id', 'targets':0},
+                {'name': 'hotel_name', 'targets':1},
+                {'name': 'member_num', 'targets':2},
+                {'name': 'linkman', 'targets':3},
+                {'name': 'mobile', 'targets':4},
+                {'name': 'house_type_name', 'targets':5},
+                {'name': 'price', 'targets':6},
+                {'name': 'checkin_time;checkout_time', 'targets':7},
+                {'name': 'state', 'targets':8},
+                {'name': 'retention_time', 'targets':9}
+            ],                          // 列定义
+            /* ------------------------- Features ------------------------- */
+            //'autoWidth': false,       // 是否自动计算列宽
+            //'deferRender': true,      // 是否延迟加载数据行
+            //'info': false,            // 是否显示表格的信息
+            //'jqueryUI': true,         // 是否加载 jqueryUI 类库包
+            //'lengthChange': false,    // 是否可以控制每页的记录数
+            //'ordering': false,        // 是否启用排序功能
+            //'order':[[7, 'desc']],    // 设置排序列与排序类型
+            //'paging': false,          // 是否分页
+            'processing': true,         // 是否显示正在处理的状态
+            //'scrollX': true,          // 是否添加水平滚动条。当表格宽度超过文档宽度时，将显示水平滚动条。
+            //'scrollY': 500,           // 是否添加垂直滚动条。值用于指定表格高度，此高度不包括表格头部和底部。
+            //'searching': false,       // 是否开启搜索功能
+            'serverSide': true,         // 是否开启服务器模式
+            'stateSave': true,          // 保存状态。在页面重新加载时恢复状态（如页码等）。
+            /* ------------------------- Data ------------------------- */
+            'ajax':{
+                'url': 'get-order-list.php',
+                'data': {
+                    'test': 'ajax.data test.'
+                }                       // 添加 ajax请求的额外参数
+            },
+            'none': false
+        });
+    });
+</script>
+</body>
+</html>
