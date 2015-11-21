@@ -1,0 +1,22 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+	window.onload = function(){
+		//alert(window.name);
+		
+		var fs;
+
+		fs = window.frames;
+
+		for (var i = 0; i < fs.length; i++) {
+			alert(fs[i].name);
+		};
+	};
+</script>
+</head>
+<body>
+<iframe src="child.html" name="child"></iframe>
+</body>
+</html>
